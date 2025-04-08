@@ -1,0 +1,34 @@
+import { Schema, model } from "mongoose";
+
+// Esquema para el modelo de Doctores
+const doctorsSchema = new Schema(
+  {
+    nombre: {
+      type: String,
+      required: true,
+    },
+
+    especialidad: {
+      type: String,
+      required: true,
+    },
+
+    correo: {
+      type: String,
+      required: true,
+      unique: true,
+      match: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/,
+    },
+
+    contraseña: {
+      type: String,
+      required: true,
+    },
+  },
+  {
+    timestamps: true, // Para crear los campos createdAt y updatedAt
+    strict: true, // Para evitar que se agreguen campos no definidos
+  }
+);
+
+export default model("Doctor", doctorsSchema);
