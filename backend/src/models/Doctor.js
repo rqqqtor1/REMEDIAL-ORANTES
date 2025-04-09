@@ -26,9 +26,9 @@ const doctorsSchema = new Schema(
     },
   },
   {
-    timestamps: true, // Para crear los campos createdAt y updatedAt
-    strict: true, // Para evitar que se agreguen campos no definidos
+    timestamps: true, 
+    strict: true, 
   }
 );
 
-export default model("Doctor", doctorsSchema);
+export default model("Doctor", doctorsSchema,"Doctor");
